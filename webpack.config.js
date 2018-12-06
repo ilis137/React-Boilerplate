@@ -10,6 +10,9 @@ module.exports = {
         path: path.resolve("dist"),
         filename: "bundle.js"
     },
+    resolve: {
+        extensions: [".js", ".jsx"]
+    },
     module: {
         rules: [{
                 test: /\.js$/,
@@ -42,7 +45,16 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loader: "url-loader?limit=8000&name=images/[name].[ext]"
             }
+
         ]
     },
     plugins: [htmlPlugin]
