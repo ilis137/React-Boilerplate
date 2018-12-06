@@ -4,7 +4,11 @@ const htmlPlugin = new htmlWebPackPlugin({
     template: "./src/index.html",
     filename: "./index.html"
 })
+const dev = process.env.NODE_ENV !== 'production';
+
 module.exports = {
+    devtool: dev ? "cheap-module-eval-source-map" : "source-map",
+    mode: dev ? 'development' : 'production',
     entry: "./src/index.jsx",
     output: {
         path: path.resolve("dist"),
