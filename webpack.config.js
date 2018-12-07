@@ -7,7 +7,7 @@ const htmlPlugin = new htmlWebPackPlugin({
 const dev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    devtool: dev ? "cheap-module-eval-source-map" : "source-map",
+    devtool: dev ? "cheap-module-eval-source-map" : false,
     mode: dev ? 'development' : 'production',
     entry: "./src/index.jsx",
     output: {
